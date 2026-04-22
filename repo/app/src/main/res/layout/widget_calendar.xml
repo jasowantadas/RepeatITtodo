@@ -50,13 +50,13 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/checkbox1"
+            android:id="@+id/statusDot1"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_status_unfinished"
             android:layout_gravity="center_vertical"
-            android:contentDescription="@string/task_checkbox" />
+            android:contentDescription="@string/task_status_indicator" />
 
         <TextView
             android:id="@+id/title1"
@@ -75,13 +75,13 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/checkbox2"
+            android:id="@+id/statusDot2"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_status_unfinished"
             android:layout_gravity="center_vertical"
-            android:contentDescription="@string/task_checkbox" />
+            android:contentDescription="@string/task_status_indicator" />
 
         <TextView
             android:id="@+id/title2"
@@ -100,13 +100,13 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/checkbox3"
+            android:id="@+id/statusDot3"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_status_unfinished"
             android:layout_gravity="center_vertical"
-            android:contentDescription="@string/task_checkbox" />
+            android:contentDescription="@string/task_status_indicator" />
 
         <TextView
             android:id="@+id/title3"
@@ -125,13 +125,13 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/checkbox4"
+            android:id="@+id/statusDot4"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_status_unfinished"
             android:layout_gravity="center_vertical"
-            android:contentDescription="@string/task_checkbox" />
+            android:contentDescription="@string/task_status_indicator" />
 
         <TextView
             android:id="@+id/title4"

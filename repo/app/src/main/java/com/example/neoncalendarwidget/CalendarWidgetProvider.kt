@@ -57,13 +57,13 @@ internal fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, 
         )
 
         val rows = listOf(
-            Triple(R.id.row1, R.id.title1, R.id.checkbox1),
-            Triple(R.id.row2, R.id.title2, R.id.checkbox2),
-            Triple(R.id.row3, R.id.title3, R.id.checkbox3),
-            Triple(R.id.row4, R.id.title4, R.id.checkbox4)
+            Triple(R.id.row1, R.id.title1, R.id.statusDot1),
+            Triple(R.id.row2, R.id.title2, R.id.statusDot2),
+            Triple(R.id.row3, R.id.title3, R.id.statusDot3),
+            Triple(R.id.row4, R.id.title4, R.id.statusDot4)
         )
 
-        rows.forEachIndexed { index, (rowId, titleId, checkboxId) ->
+        rows.forEachIndexed { index, (rowId, titleId, statusDotId) ->
             if (index < events.size) {
                 val event = events[index]
                 val checked = WidgetCheckStateStore.isChecked(
@@ -98,11 +98,11 @@ internal fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, 
                     Paint.ANTI_ALIAS_FLAG
                 )
                 views.setImageViewResource(
-                    checkboxId,
+                    statusDotId,
                     if (checked) R.drawable.ic_status_done else R.drawable.ic_status_unfinished
                 )
                 views.setOnClickPendingIntent(rowId, pendingIntent)
-                views.setOnClickPendingIntent(checkboxId, pendingIntent)
+                views.setOnClickPendingIntent(statusDotId, pendingIntent)
             } else {
                 views.setViewVisibility(rowId, android.view.View.GONE)
             }
