@@ -2,7 +2,10 @@ package com.example.neoncalendarwidget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
+import android.content.Intent
 import android.content.Context
+import android.app.PendingIntent
+import java.time.LocalDate
 import android.widget.RemoteViews
 
 class CalendarWidgetProvider : AppWidgetProvider() {
@@ -15,11 +18,27 @@ class CalendarWidgetProvider : AppWidgetProvider() {
             updateWidget(context, appWidgetManager, id)
         }
     }
+
+    override fun onReceive(context: Context, intent: Intent) {
+        super.onReceive(context, intent)
+
+        if (intent.action == ACTION_TOGGLE_EVENT) {
+            val appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
+            val eventId = intent.getLongExtra(EXTRA_EVENT_ID, -1L)
+
+            if (appWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID && eventId != -1L) {
+                val todayKey = LocalDate.now().toString()
+                WidgetCheckStateStore.toggle(context, appWidgetId, eventId, todayKey)
+                updateWidget(context, AppWidgetManager.getInstance(context), appWidgetId)
+            }
+        }
+    }
 }
 
 internal fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
     val views = RemoteViews(context.packageName, R.layout.widget_calendar)
     val header = CalendarRepository.todayHeader()
+    val todayKey = LocalDate.now().toString()
 
     views.setTextViewText(R.id.headerText, header)
 
@@ -32,17 +51,36 @@ internal fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, 
         )
 
         val rows = listOf(
-            Pair(R.id.row1, R.id.title1),
-            Pair(R.id.row2, R.id.title2),
-            Pair(R.id.row3, R.id.title3),
-            Pair(R.id.row4, R.id.title4)
+            Triple(R.id.row1, R.id.title1, R.id.checkbox1),
+            Triple(R.id.row2, R.id.title2, R.id.checkbox2),
+            Triple(R.id.row3, R.id.title3, R.id.checkbox3),
+            Triple(R.id.row4, R.id.title4, R.id.checkbox4)
         )
 
-        rows.forEachIndexed { index, (rowId, titleId) ->
+        rows.forEachIndexed { index, (rowId, titleId, checkboxId) ->
             if (index < events.size) {
                 val event = events[index]
+                val checked = WidgetCheckStateStore.isChecked(context, appWidgetId, event.eventId, todayKey)
+                val toggleIntent = Intent(context, CalendarWidgetProvider::class.java).apply {
+                    action = ACTION_TOGGLE_EVENT
+                    putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+                    putExtra(EXTRA_EVENT_ID, event.eventId)
+                }
+                val pendingIntent = PendingIntent.getBroadcast(
+                    context,
+                    appWidgetId * 10 + index,
+                    toggleIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                )
+
                 views.setViewVisibility(rowId, android.view.View.VISIBLE)
                 views.setTextViewText(titleId, event.title)
+                views.setImageViewResource(
+                    checkboxId,
+                    if (checked) R.drawable.ic_checkbox_checked else R.drawable.ic_checkbox_empty
+                )
+                views.setOnClickPendingIntent(rowId, pendingIntent)
+                views.setOnClickPendingIntent(checkboxId, pendingIntent)
             } else {
                 views.setViewVisibility(rowId, android.view.View.GONE)
             }
@@ -67,3 +105,25 @@ internal fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, 
 
     appWidgetManager.updateAppWidget(appWidgetId, views)
 }
+
+private object WidgetCheckStateStore {
+    private const val PREFS_NAME = "widget_checks"
+
+    private fun key(widgetId: Int, eventId: Long, date: String): String = "${widgetId}_${eventId}_$date"
+
+    fun isChecked(context: Context, widgetId: Int, eventId: Long, date: String): Boolean {
+        return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .getBoolean(key(widgetId, eventId, date), false)
+    }
+
+    fun toggle(context: Context, widgetId: Int, eventId: Long, date: String): Boolean {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val prefKey = key(widgetId, eventId, date)
+        val newValue = !prefs.getBoolean(prefKey, false)
+        prefs.edit().putBoolean(prefKey, newValue).apply()
+        return newValue
+    }
+}
+
+private const val ACTION_TOGGLE_EVENT = "com.example.neoncalendarwidget.ACTION_TOGGLE_EVENT"
+private const val EXTRA_EVENT_ID = "extra_event_id"
