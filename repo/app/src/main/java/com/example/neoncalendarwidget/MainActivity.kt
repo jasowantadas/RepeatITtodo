@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
         binding.statusText.text = "Grant calendar permission, then add the widget from the widget picker."
     }
 
+    override fun onResume() {
+        super.onResume()
+        refreshWidget()
+    }
+
     private fun refreshWidget() {
         val intent = Intent(this, CalendarWidgetProvider::class.java).apply {
             action = AppWidgetManager.ACTION_APPWIDGET_UPDATE

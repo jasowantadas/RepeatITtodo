@@ -49,13 +49,14 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+        <ImageView
+            android:id="@+id/checkbox1"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_status_unfinished"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title1"
@@ -73,13 +74,14 @@
         android:layout_marginTop="9dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+        <ImageView
+            android:id="@+id/checkbox2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_status_unfinished"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title2"
@@ -97,13 +99,14 @@
         android:layout_marginTop="9dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+        <ImageView
+            android:id="@+id/checkbox3"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_status_unfinished"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title3"
@@ -121,13 +124,14 @@
         android:layout_marginTop="9dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+        <ImageView
+            android:id="@+id/checkbox4"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_status_unfinished"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title4"
