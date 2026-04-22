@@ -24,7 +24,6 @@
         android:textColor="#CC1F1F"
         android:textSize="12sp" />
 
-    <!-- Divider as TextView (View is not supported in RemoteViews) -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -42,100 +41,14 @@
         android:textColor="#555555"
         android:textSize="14sp" />
 
-    <LinearLayout
-        android:id="@+id/row1"
+    <ListView
+        android:id="@+id/eventList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/title1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#E8E8E8"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/row2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/title2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#E8E8E8"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/row3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/title3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#E8E8E8"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/row4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/title4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#E8E8E8"
-            android:textSize="14sp" />
-    </LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical" />
 
 </LinearLayout>

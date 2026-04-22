@@ -29,5 +29,10 @@
                 android:resource="@xml/calendar_widget_info" />
         </receiver>
 
+        <service
+            android:name=".EventListRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
+
     </application>
 </manifest>
