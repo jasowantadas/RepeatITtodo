@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Nothing Events</string>
+    <string name="task_status_indicator">Toggle task status</string>
+</resources>
