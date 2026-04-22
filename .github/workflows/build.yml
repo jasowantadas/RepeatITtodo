@@ -2,7 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches: ["NothingOS-Themed-Claude-v2"]
+    branches: ["Codex-version"]
 
 jobs:
   build:
