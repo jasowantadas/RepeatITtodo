@@ -50,12 +50,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/checkbox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+            android:text="●"
+            android:textColor="#E35A5A"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title1"
@@ -74,12 +77,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/checkbox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+            android:text="●"
+            android:textColor="#E35A5A"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title2"
@@ -98,12 +104,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/checkbox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+            android:text="●"
+            android:textColor="#E35A5A"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title3"
@@ -122,12 +131,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/checkbox4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:text="&#9633;"
-            android:textColor="#CC1F1F"
-            android:textSize="13sp" />
+            android:text="●"
+            android:textColor="#E35A5A"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/task_checkbox" />
 
         <TextView
             android:id="@+id/title4"
