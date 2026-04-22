@@ -2,7 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches: ["NothingOS-Themed-Claude-v2"]
+    branches: ["codex/emulate-checkboxes-in-android-widget-96jevb"]
 
 jobs:
   build:
