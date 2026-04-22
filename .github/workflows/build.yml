@@ -2,7 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches: ["NothingOS-Themed-Claude"]
+    branches: ["NothingOS-Themed-Claude-v2"]
 
 jobs:
   build:
@@ -33,10 +33,10 @@ jobs:
           echo "$PWD/gradle-8.7/bin" >> $GITHUB_PATH
 
       - name: Build APK
-        run: gradle assembleDebug
+        run: cd repo && gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: repo/app/build/outputs/apk/debug/app-debug.apk
