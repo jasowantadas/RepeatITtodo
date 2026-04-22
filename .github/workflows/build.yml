@@ -2,7 +2,7 @@ name: Build APK
 
 on:
   push:
-    branches: ["codex/emulate-checkboxes-in-android-widget-mx29jp"]
+    branches: ["NothingOS-Codex-v2"]
 
 jobs:
   build:
