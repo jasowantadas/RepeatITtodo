@@ -51,10 +51,10 @@
 
         <ImageView
             android:id="@+id/checkbox1"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:src="@drawable/ic_status_unfinished"
+            android:src="@drawable/ic_checkbox_empty"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/task_checkbox" />
 
@@ -76,10 +76,10 @@
 
         <ImageView
             android:id="@+id/checkbox2"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:src="@drawable/ic_status_unfinished"
+            android:src="@drawable/ic_checkbox_empty"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/task_checkbox" />
 
@@ -101,10 +101,10 @@
 
         <ImageView
             android:id="@+id/checkbox3"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:src="@drawable/ic_status_unfinished"
+            android:src="@drawable/ic_checkbox_empty"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/task_checkbox" />
 
@@ -126,10 +126,10 @@
 
         <ImageView
             android:id="@+id/checkbox4"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:src="@drawable/ic_status_unfinished"
+            android:src="@drawable/ic_checkbox_empty"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/task_checkbox" />
 

@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter
 
 data class CalendarEventUi(
     val eventId: Long,
-    val startMillis: Long,
     val title: String,
     val timeLabel: String
 )
@@ -63,14 +62,7 @@ object CalendarRepository {
                     localTime.format(DateTimeFormatter.ofPattern("h:mm a"))
                 }
 
-                results.add(
-                    CalendarEventUi(
-                        eventId = eventId,
-                        startMillis = startMillis,
-                        title = title,
-                        timeLabel = timeLabel
-                    )
-                )
+                results.add(CalendarEventUi(eventId = eventId, title = title, timeLabel = timeLabel))
                 if (results.size >= 4) break
             }
         }
